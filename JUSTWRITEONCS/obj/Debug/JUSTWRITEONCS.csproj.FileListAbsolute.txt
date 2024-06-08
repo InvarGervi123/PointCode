@@ -1,0 +1,7 @@
+C:\Users\User\source\repos\JUSTWRITEONCS\JUSTWRITEONCS\bin\Debug\JUSTWRITEONCS.exe.config
+C:\Users\User\source\repos\JUSTWRITEONCS\JUSTWRITEONCS\bin\Debug\JUSTWRITEONCS.exe
+C:\Users\User\source\repos\JUSTWRITEONCS\JUSTWRITEONCS\bin\Debug\JUSTWRITEONCS.pdb
+C:\Users\User\source\repos\JUSTWRITEONCS\JUSTWRITEONCS\obj\Debug\JUSTWRITEONCS.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\JUSTWRITEONCS\JUSTWRITEONCS\obj\Debug\JUSTWRITEONCS.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\JUSTWRITEONCS\JUSTWRITEONCS\obj\Debug\JUSTWRITEONCS.exe
+C:\Users\User\source\repos\JUSTWRITEONCS\JUSTWRITEONCS\obj\Debug\JUSTWRITEONCS.pdb
