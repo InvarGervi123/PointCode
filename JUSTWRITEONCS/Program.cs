@@ -66,8 +66,8 @@ namespace JUSTWRITEONCS
     {
         static void Main(string[] args)
         {
-            InitAndStartUniversalPointMove();
-            Console.ReadKey();
+            //InitAndStartUniversalPointMove();
+            //Console.ReadKey();
 
             //for (int i = 0; ; i++)
             //{
@@ -82,7 +82,7 @@ namespace JUSTWRITEONCS
             {
                 
 
-                string showMe = $"X:{controll.y} Y:{controll.x} Z:{controll.z} ";
+                string showMe = $"X:{controll.x} Y:{controll.y} Z:{controll.z} ";
                 Console.WriteLine(showMe);
                 ConsoleKeyInfo MoveTo = Console.ReadKey();
                 if (MoveTo.Key == ConsoleKey.Escape)
