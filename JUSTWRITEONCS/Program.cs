@@ -8,9 +8,13 @@ namespace JUSTWRITEONCS
 {
     class Point
     {
-        public static int x =0 ;
-        public static int y =0 ;
-        public static int z =0 ;
+        //public static int x =0 ;
+        //public static int y =0 ;
+        //public static int z =0 ;
+
+        public  int x = 0;
+        public  int y = 0;
+        public  int z = 0;
 
         //public int _x = x;
         //public int _y = y;
@@ -45,54 +49,82 @@ namespace JUSTWRITEONCS
 
     class Controll : Point
     {
-        public int PressKey()
+        //public int PressKey()
+        //{
+        //    string Key = Console.ReadLine();
+
+        //    int NumKey = 0;
+
+        //    if (Key == "a")
+        //    {
+        //        NumKey = keyA();
+        //    }
+        //    else if (Key == "d") //else if
+        //    {
+        //        NumKey = keyD();
+        //    }
+        //    else if (Key == "w")
+        //    {
+        //        NumKey = keyW();
+        //    }
+        //    else if (Key == "s")
+        //    {
+        //        NumKey = keyS();
+        //    }
+        //    else if (Key == " ")
+        //    {
+        //        NumKey = keySpace();
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Wrong");
+        //    }
+        //    //if (Key == null)
+        //    //{
+        //    //    Console.WriteLine("Wrong");
+        //    //}
+
+        //    while (true)
+        //    {
+
+        //        Console.WriteLine("X:" + x);
+        //        Console.WriteLine("Y:" + y);
+        //        Console.WriteLine("Z:" + z);
+                    
+                    
+                    
+        //        PressKey();
+        //    }
+        //    //return NumKey;
+
+        //}
+
+        internal void Move(ConsoleKeyInfo moveTo)
         {
-            string Key = Console.ReadLine();
-
-            int NumKey = 0;
-
-            if (Key == "a")
+            if (moveTo.Key == ConsoleKey.A)
             {
-                NumKey = keyA();
+                x = keyA();
             }
-            else if (Key == "d") //else if
+            else if (moveTo.Key == ConsoleKey.D) //else if
             {
-                NumKey = keyD();
+                x = keyD();
             }
-            else if (Key == "w")
+            else if (moveTo.Key == ConsoleKey.W)
             {
-                NumKey = keyW();
+                y = keyW();
             }
-            else if (Key == "s")
+            else if (moveTo.Key == ConsoleKey.S)
             {
-                NumKey = keyS();
+                y = keyS();
             }
-            else if (Key == " ")
+            else if (moveTo.Key == ConsoleKey.Spacebar)
             {
-                NumKey = keySpace();
+                z = keySpace();
             }
             else
             {
-                Console.WriteLine("Wrong");
+                Console.WriteLine($"{Environment.NewLine}Wrong!!!");
             }
-            //if (Key == null)
-            //{
-            //    Console.WriteLine("Wrong");
-            //}
-
-            while (true)
-            {
-
-                Console.WriteLine("X:" + x);
-                Console.WriteLine("Y:" + y);
-                Console.WriteLine("Z:" + z);
-                    
-                    
-                    
-                PressKey();
-            }
-            //return NumKey;
-
         }
     }
 
@@ -102,15 +134,28 @@ namespace JUSTWRITEONCS
     {
         static void Main(string[] args)
         {
-            
-            for (int i = 0; ; i++)
+
+            //for (int i = 0; ; i++)
+            //{
+            //    Controll[] a = new Controll[i];
+            //    Console.WriteLine(i);
+            //}
+            Controll controll = new Controll();
+            while (true)
             {
-                Controll[] a = new Controll[i];
-                Console.WriteLine(i);
+                
+
+                string showMe = $"X:{controll.y} Y:{controll.x} Z:{controll.z} ";
+                Console.WriteLine(showMe);
+                ConsoleKeyInfo MoveTo = Console.ReadKey();
+                if (MoveTo.Key == ConsoleKey.Escape)
+                {
+                    break;
+                }
+                controll.Move(MoveTo);
             }
 
-            Controll controll = new Controll();
-            Console.WriteLine(controll.PressKey());
+            Console.WriteLine("Exit pressed!!!");
             Console.ReadKey();
         }
     }
