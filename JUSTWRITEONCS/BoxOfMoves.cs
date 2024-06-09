@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JUSTWRITEONCS
 {
-    public class BoxOfMoves
+    public abstract class BoxOfMoves
     {
         //private ConsoleKeyInfo _Key;
 
@@ -16,20 +16,16 @@ namespace JUSTWRITEONCS
         }
 
 
-        //public int PressKey(ConsoleKeyInfo KeyPreesdNow, int coord)
-        //{
-        //    if (KeyPreesdNow == Key)
-        //    {
-        //        int res = MoveMe(coord);
-        //    }
-        //}
+        public virtual int PressKey(ConsoleKeyInfo KeyPreesdNow, int whatToMove)
+        {
+            return whatToMove;
+        }
+       
         public ConsoleKeyInfo Key { get; set; }
-
-        //public delegate int MoveMe(int anyCoord);
-        //public MoveMe WhenKeyChange(int aCoord)
-        //{
-        //    return new MoveMe()
-        //}
-
+       
+        protected bool IsThisKey(ConsoleKeyInfo preesdNow)
+        {
+            return preesdNow.Key == Key.Key;
+        }
     }
 }

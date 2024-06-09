@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JUSTWRITEONCS
 {
-    class Point
+    public class Point
     {
         
 
@@ -28,7 +28,7 @@ namespace JUSTWRITEONCS
         }      
     }
 
-    class Controll : Point
+    public class Controll : Point
     {     
 
         internal void Move(ConsoleKeyInfo moveTo)
@@ -66,6 +66,8 @@ namespace JUSTWRITEONCS
     {
         static void Main(string[] args)
         {
+            InitAndStartUniversalPointMove();
+            Console.ReadKey();
 
             //for (int i = 0; ; i++)
             //{
@@ -73,8 +75,8 @@ namespace JUSTWRITEONCS
             //    Console.WriteLine(i);
             //}
 
-           // BoxOfMoves keyA = new BoxOfMoves(new ConsoleKeyInfo('A', ConsoleKey.A,false,false,false));
-            
+            // BoxOfMoves keyA = new BoxOfMoves(new ConsoleKeyInfo('A', ConsoleKey.A,false,false,false));
+
             Controll controll = new Controll();
             while (true)
             {
@@ -101,10 +103,48 @@ namespace JUSTWRITEONCS
             Console.CursorLeft = 40;
             Console.CursorTop = 40;
 
-            Console.WriteLine("            d!!!");
+            Console.WriteLine(" Now Go as Professionals!!!!");
 
 
             Console.ReadKey();
+
+            InitAndStartUniversalPointMove();
+            Console.ReadKey();
+        }
+
+        private static void InitAndStartUniversalPointMove()
+        {
+            Controll singlePoint = new Controll();
+
+            List<BoxOfMoves> allButtons = new List<BoxOfMoves>();
+
+            allButtons.Add(new MoveDown(new ConsoleKeyInfo(' ', ConsoleKey.A, true, false, false)));
+            allButtons.Add(new MoveUp(new ConsoleKeyInfo(' ', ConsoleKey.D, true, false, false)));
+
+
+
+            while (true)
+            {
+
+
+                string showMe = $"X:{singlePoint.x} Y:{singlePoint.y} Z:{singlePoint.z} ";
+                Console.WriteLine(showMe);
+                ConsoleKeyInfo MoveTo = Console.ReadKey();
+
+                foreach (var buttLogic in allButtons)
+                {
+                    singlePoint.x = buttLogic.PressKey(MoveTo, singlePoint.x);
+
+                    
+                }
+
+                if (MoveTo.Key == ConsoleKey.Escape)
+                {
+                    break;
+                }                
+            }
+
+            Console.WriteLine("Exit pressed!!!");
         }
     }
 }
