@@ -8,118 +8,50 @@ namespace JUSTWRITEONCS
 {
     class Point
     {
-        //public static int x =0 ;
-        //public static int y =0 ;
-        //public static int z =0 ;
+        
 
         public  int x = 0;
         public  int y = 0;
-        public  int z = 0;
+        public  int z = 0;    
 
-        //public int _x = x;
-        //public int _y = y;
-        //public int _z = z;
 
-        public int keyA()
+        public int moveDown(int oneCoord)
         {
-            x = x -1 ;
-            return x ;
+            oneCoord = oneCoord - 1;
+            return oneCoord;
         }
-        public int keyD()
+
+        public int moveUp(int oneCoord)
         {
-            x = x + 1;
-            return x ;
-        }
-        public int keyW()
-        {
-            y = y + 1;
-            return y ;
-        }
-        public int keyS()
-        {
-            y = y - 1;
-            return y ;
-        }
-        public int keySpace()
-        {
-            z =z + 1;
-            return z ;
-        }
+            oneCoord = oneCoord + 1;
+            return oneCoord;
+        }      
     }
 
     class Controll : Point
-    {
-        //public int PressKey()
-        //{
-        //    string Key = Console.ReadLine();
-
-        //    int NumKey = 0;
-
-        //    if (Key == "a")
-        //    {
-        //        NumKey = keyA();
-        //    }
-        //    else if (Key == "d") //else if
-        //    {
-        //        NumKey = keyD();
-        //    }
-        //    else if (Key == "w")
-        //    {
-        //        NumKey = keyW();
-        //    }
-        //    else if (Key == "s")
-        //    {
-        //        NumKey = keyS();
-        //    }
-        //    else if (Key == " ")
-        //    {
-        //        NumKey = keySpace();
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Wrong");
-        //    }
-        //    //if (Key == null)
-        //    //{
-        //    //    Console.WriteLine("Wrong");
-        //    //}
-
-        //    while (true)
-        //    {
-
-        //        Console.WriteLine("X:" + x);
-        //        Console.WriteLine("Y:" + y);
-        //        Console.WriteLine("Z:" + z);
-                    
-                    
-                    
-        //        PressKey();
-        //    }
-        //    //return NumKey;
-
-        //}
+    {     
 
         internal void Move(ConsoleKeyInfo moveTo)
         {
             if (moveTo.Key == ConsoleKey.A)
             {
-                x = keyA();
+                x = moveDown(x);
             }
             else if (moveTo.Key == ConsoleKey.D) //else if
             {
-                x = keyD();
+                x = moveUp(x);
             }
             else if (moveTo.Key == ConsoleKey.W)
             {
-                y = keyW();
+                y = moveDown(y);
             }
             else if (moveTo.Key == ConsoleKey.S)
             {
-                y = keyS();
+                y = moveUp(y);
             }
             else if (moveTo.Key == ConsoleKey.Spacebar)
             {
-                z = keySpace();
+                z = moveUp(z);
             }
             else
             {
@@ -140,6 +72,9 @@ namespace JUSTWRITEONCS
             //    Controll[] a = new Controll[i];
             //    Console.WriteLine(i);
             //}
+
+           // BoxOfMoves keyA = new BoxOfMoves(new ConsoleKeyInfo('A', ConsoleKey.A,false,false,false));
+            
             Controll controll = new Controll();
             while (true)
             {
@@ -156,6 +91,19 @@ namespace JUSTWRITEONCS
             }
 
             Console.WriteLine("Exit pressed!!!");
+
+            Console.CursorLeft = 40;
+            Console.CursorTop = 40;
+
+
+            Console.WriteLine("Exit pressed!!!");
+ Console.ReadKey();
+            Console.CursorLeft = 40;
+            Console.CursorTop = 40;
+
+            Console.WriteLine("            d!!!");
+
+
             Console.ReadKey();
         }
     }
