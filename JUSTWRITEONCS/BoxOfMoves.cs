@@ -8,19 +8,28 @@ namespace JUSTWRITEONCS
 {
     public abstract class BoxOfMoves
     {
-        //private ConsoleKeyInfo _Key;
+        protected SingleCoordinate _coord;
 
-        public BoxOfMoves(ConsoleKeyInfo setInitialKey)
+        public BoxOfMoves(ConsoleKeyInfo setInitialKey, SingleCoordinate whatToMove)
         {
             Key = setInitialKey;
+            _coord = whatToMove;
         }
 
+        protected BoxOfMoves(ConsoleKeyInfo setInitialKey)
+        {
+        }
 
         public virtual int PressKey(ConsoleKeyInfo KeyPreesdNow, int whatToMove)
         {
             return whatToMove;
         }
-       
+
+        public virtual void PressKey(ConsoleKeyInfo KeyPreesdNow)
+        {
+            
+        }
+
         public ConsoleKeyInfo Key { get; set; }
        
         protected bool IsThisKey(ConsoleKeyInfo preesdNow)

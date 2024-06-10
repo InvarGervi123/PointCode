@@ -8,9 +8,10 @@ namespace JUSTWRITEONCS
 {
     public class MoveUp : BoxOfMoves
     {
-        public MoveUp(ConsoleKeyInfo setInitialKey) : base(setInitialKey)
+        public MoveUp(ConsoleKeyInfo setInitialKey, SingleCoordinate whatToMove) : base(setInitialKey, whatToMove)
         {
         }
+
         public override int PressKey(ConsoleKeyInfo KeyPreesdNow, int whatToMove)
         {
             if (IsThisKey(KeyPreesdNow))
@@ -20,6 +21,14 @@ namespace JUSTWRITEONCS
             else
             {
                 return base.PressKey(KeyPreesdNow, whatToMove);
+            }
+        }
+
+        public override void PressKey(ConsoleKeyInfo KeyPreesdNow)
+        {
+            if (IsThisKey(KeyPreesdNow))
+            {
+                ++_coord.Value; 
             }
         }
     }

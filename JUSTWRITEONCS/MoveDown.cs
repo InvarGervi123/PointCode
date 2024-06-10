@@ -8,7 +8,7 @@ namespace JUSTWRITEONCS
 {
     public class MoveDown : BoxOfMoves
     {
-        public MoveDown(ConsoleKeyInfo setInitialKey) : base(setInitialKey)
+        public MoveDown(ConsoleKeyInfo setInitialKey, SingleCoordinate whatToMove) : base(setInitialKey, whatToMove)
         {
         }
 
@@ -23,5 +23,15 @@ namespace JUSTWRITEONCS
                 return base.PressKey(KeyPreesdNow, whatToMove);
             }
         }
+
+
+        public override void PressKey(ConsoleKeyInfo KeyPreesdNow)
+        {
+            if (IsThisKey(KeyPreesdNow))
+            {
+                --_coord.Value;
+            }           
+        }
+
     }
 }

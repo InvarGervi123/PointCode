@@ -8,7 +8,11 @@ namespace JUSTWRITEONCS
 {
     public class Point
     {
-        
+
+        public SingleCoordinate XX { get; set; }
+        public SingleCoordinate YY { get; set; }
+        public SingleCoordinate ZZ { get; set; }
+        //public SingleCoordinate XX { get; set; }
 
         public  int x = 0;
         public  int y = 0;
@@ -29,7 +33,17 @@ namespace JUSTWRITEONCS
     }
 
     public class Controll : Point
-    {     
+    {
+        public Controll()
+        {
+        }
+
+        public Controll(bool initMe)
+        {
+            XX = new SingleCoordinate();
+            YY = new SingleCoordinate();
+            ZZ = new SingleCoordinate();
+        }
 
         internal void Move(ConsoleKeyInfo moveTo)
         {
@@ -66,8 +80,8 @@ namespace JUSTWRITEONCS
     {
         static void Main(string[] args)
         {
-            //InitAndStartUniversalPointMove();
-            //Console.ReadKey();
+            InitAndStartUniversalPointMove();
+            Console.ReadKey();
 
             //for (int i = 0; ; i++)
             //{
@@ -99,7 +113,7 @@ namespace JUSTWRITEONCS
 
 
             Console.WriteLine("Exit pressed!!!");
- Console.ReadKey();
+            Console.ReadKey();
             Console.CursorLeft = 40;
             Console.CursorTop = 40;
 
@@ -114,28 +128,34 @@ namespace JUSTWRITEONCS
 
         private static void InitAndStartUniversalPointMove()
         {
-            Controll singlePoint = new Controll();
+            Controll singlePoint = new Controll(true);
 
             List<BoxOfMoves> allButtons = new List<BoxOfMoves>();
+            
 
-            allButtons.Add(new MoveDown(new ConsoleKeyInfo(' ', ConsoleKey.A, true, false, false)));
-            allButtons.Add(new MoveUp(new ConsoleKeyInfo(' ', ConsoleKey.D, true, false, false)));
+            allButtons.Add(new MoveDown(new ConsoleKeyInfo(' ', ConsoleKey.A, true, false, false), singlePoint.XX));
+            allButtons.Add(new MoveUp(new ConsoleKeyInfo(' ', ConsoleKey.D, true, false, false), singlePoint.XX));
+            allButtons.Add(new MoveDown(new ConsoleKeyInfo(' ', ConsoleKey.S, true, false, false),singlePoint.YY));
+            allButtons.Add(new MoveUp(new ConsoleKeyInfo(' ', ConsoleKey.W, true, false, false),singlePoint.YY));
 
+
+            allButtons.Add(new MoveDown(new ConsoleKeyInfo(' ', ConsoleKey.LeftArrow, true, false, false), singlePoint.XX));
+            allButtons.Add(new MoveUp(new ConsoleKeyInfo(' ', ConsoleKey.RightArrow, true, false, false), singlePoint.XX));
+            allButtons.Add(new MoveDown(new ConsoleKeyInfo(' ', ConsoleKey.DownArrow, true, false, false), singlePoint.YY));
+            allButtons.Add(new MoveUp(new ConsoleKeyInfo(' ', ConsoleKey.UpArrow, true, false, false), singlePoint.YY));
 
 
             while (true)
             {
 
 
-                string showMe = $"X:{singlePoint.x} Y:{singlePoint.y} Z:{singlePoint.z} ";
+                string showMe = $"X:{singlePoint.XX.Value} Y:{singlePoint.YY.Value} Z:{singlePoint.ZZ.Value} ";
                 Console.WriteLine(showMe);
                 ConsoleKeyInfo MoveTo = Console.ReadKey();
 
                 foreach (var buttLogic in allButtons)
                 {
-                    singlePoint.x = buttLogic.PressKey(MoveTo, singlePoint.x);
-
-                    
+                    buttLogic.PressKey(MoveTo);                    
                 }
 
                 if (MoveTo.Key == ConsoleKey.Escape)
