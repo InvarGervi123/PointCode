@@ -43,11 +43,11 @@ namespace JUSTWRITEONCS
             }
             else if (moveTo.Key == ConsoleKey.W)
             {
-                y = moveDown(y);
+                y = moveUp(y);
             }
             else if (moveTo.Key == ConsoleKey.S)
             {
-                y = moveUp(y);
+                y = moveDown(y);
             }
             else if (moveTo.Key == ConsoleKey.Spacebar)
             {
