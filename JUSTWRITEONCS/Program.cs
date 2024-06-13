@@ -18,6 +18,32 @@ namespace JUSTWRITEONCS
     {
         public Controll()
         {
+            if (moveTo.Key == ConsoleKey.A)
+            {
+                x = moveDown(x);
+            }
+            else if (moveTo.Key == ConsoleKey.D) //else if
+            {
+                x = moveUp(x);
+            }
+            else if (moveTo.Key == ConsoleKey.W)
+            {
+                y = moveUp(y);
+            }
+            else if (moveTo.Key == ConsoleKey.S)
+            {
+                y = moveDown(y);
+            }
+            else if (moveTo.Key == ConsoleKey.Spacebar)
+            {
+                z = moveUp(z);
+            }
+            else
+            {
+                Console.WriteLine($"{Environment.NewLine}Wrong!!!");
+            }
+        }
+    }
             XX = new SingleCoordinate();
             YY = new SingleCoordinate();
             ZZ = new SingleCoordinate();
