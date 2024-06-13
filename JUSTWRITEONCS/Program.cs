@@ -14,7 +14,7 @@ namespace JUSTWRITEONCS
         public SingleCoordinate YY { get; set; }
         public SingleCoordinate ZZ { get; set; }
     }       
-}
+
 
 public class Controll : Point
     {
@@ -114,4 +114,5 @@ public class Controll : Point
             Console.Write("     ");
         }
     }
+
 }
