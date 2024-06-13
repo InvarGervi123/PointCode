@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JUSTWRITEONCS;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -11,39 +12,15 @@ namespace JUSTWRITEONCS
     {
         public SingleCoordinate XX { get; set; }
         public SingleCoordinate YY { get; set; }
-        public SingleCoordinate ZZ { get; set; }      
-    }
+        public SingleCoordinate ZZ { get; set; }
+    }       
+}
 
-    public class Controll : Point
+public class Controll : Point
     {
         public Controll()
         {
-            if (moveTo.Key == ConsoleKey.A)
-            {
-                x = moveDown(x);
-            }
-            else if (moveTo.Key == ConsoleKey.D) //else if
-            {
-                x = moveUp(x);
-            }
-            else if (moveTo.Key == ConsoleKey.W)
-            {
-                y = moveUp(y);
-            }
-            else if (moveTo.Key == ConsoleKey.S)
-            {
-                y = moveDown(y);
-            }
-            else if (moveTo.Key == ConsoleKey.Spacebar)
-            {
-                z = moveUp(z);
-            }
-            else
-            {
-                Console.WriteLine($"{Environment.NewLine}Wrong!!!");
-            }
-        }
-    }
+        
             XX = new SingleCoordinate();
             YY = new SingleCoordinate();
             ZZ = new SingleCoordinate();
