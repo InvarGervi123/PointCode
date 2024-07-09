@@ -16,9 +16,7 @@ namespace JUSTWRITEONCS
             _coord = whatToMove;
         }
 
-        protected BoxOfMoves(ConsoleKeyInfo setInitialKey)
-        {
-        }
+        
 
         public virtual int PressKey(ConsoleKeyInfo KeyPreesdNow, int whatToMove)
         {

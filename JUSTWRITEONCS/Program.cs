@@ -8,22 +8,16 @@ using System.Threading.Tasks;
 
 namespace JUSTWRITEONCS
 {
-    public class Point
-    {
-        public SingleCoordinate XX { get; set; }
-        public SingleCoordinate YY { get; set; }
-        public SingleCoordinate ZZ { get; set; }
-    }       
 
 
-public class Controll : Point
+    public class Controll : Point
     {
         public Controll()
         {
-        
+
             XX = new SingleCoordinate();
             YY = new SingleCoordinate();
-            ZZ = new SingleCoordinate();
+            // ZZ = new SingleCoordinate();
             Image = "*";
         }
 
@@ -35,6 +29,7 @@ public class Controll : Point
         static void Main(string[] args)
         {
             Controll singlePoint = new Controll();
+            //if (true)return;
             List<BoxOfMoves> allButtons = InitUniversalPointMove(singlePoint);
             StartUniversalPointMove(allButtons, singlePoint);
             Console.ReadKey();
@@ -44,8 +39,7 @@ public class Controll : Point
         {
             while (true)
             {
-                //string showMe = $"X:{singlePoint.XX.Value} Y:{singlePoint.YY.Value} Z:{singlePoint.ZZ.Value} ";
-                //Console.WriteLine(showMe);
+                
                 ShowOnScreen(singlePoint);
 
                 ConsoleKeyInfo MoveTo = Console.ReadKey();
@@ -90,8 +84,8 @@ public class Controll : Point
 
         private static void DrawNew(Controll singlePoint)
         {
-            int Xpoint = 30 + singlePoint.XX.Value;
-            int Ypoint = 30 + singlePoint.YY.Value;
+            int Xpoint = 10+ singlePoint.XX.Value;
+            int Ypoint = 10+ singlePoint.YY.Value;
             Debug.WriteLine($"New {Xpoint}:{Ypoint}");
             Console.CursorTop = Ypoint;
             Console.CursorLeft = Xpoint;
@@ -100,8 +94,8 @@ public class Controll : Point
 
         private static void RemoveOld(Controll singlePoint)
         {
-            int Xpoint = 30 + singlePoint.XX.PastValue - 2;
-            int Ypoint = 30 + singlePoint.YY.PastValue - 2;
+            int Xpoint = 10+ singlePoint.XX.PastValue - 2;
+            int Ypoint = 10+ singlePoint.YY.PastValue - 2;
             Debug.WriteLine($"Old {Xpoint}:{Ypoint}");
             Console.CursorTop = Ypoint;
             Console.CursorLeft = Xpoint;
